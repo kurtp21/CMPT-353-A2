@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  node1:
+    build: .
+    container_name: A2
+    ports:
+    - "80:8080"
+    volumes: 
+    - /Users/kurtpagal/University/Year3/Fall-Term/CMPT-353/Assignments/CMPT-353-A2:/usr/src/app/
+    stdin_open: true
+    tty: true
