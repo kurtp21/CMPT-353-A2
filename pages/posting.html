@@ -1,3 +1,61 @@
+<!-- <!DOCTYPE html>
+
+<html>
+  <head>
+
+    <title> AJAX </title>
+
+</head>
+
+
+<body>
+    
+<script type = "text/javascript">
+
+function sayHello()
+{
+    var http = new XMLHttpRequest();
+    var url = '/sayHello';
+    var params = 'name=' + document.getElementById("input").value;
+       
+    http.open('POST', url, true);
+
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    http.onreadystatechange = function() 
+    { 
+        if(http.readyState == 4 && http.status == 200) 
+        {
+             
+            var response = JSON.parse(http.responseText);
+    
+            document.getElementById("answer").value = response.answer;
+    
+             
+        }
+    };
+
+    http.send(params);
+};
+
+
+
+</script>
+
+
+  <label for="Name"> Name:</label><br> <br>
+  <input id="input" type="text" name="name" value=""><br> <br>
+  <br>
+  <button  onclick= "sayHello()"  > Hello </button>
+  <br>
+
+
+<textarea id="answer">   </textarea>
+
+</body>
+
+</html> -->
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,6 +66,35 @@
     </head>
 
     <body>
-        <h1>Hello, World!</h1>
+        <script type="text/javascript">
+            function writeData() {
+                var params = 'name=' + document.getElementById("data").value;
+                var http = new XMLHttpRequest();
+                var url = '/posting';
+
+                http.open('POST', url, true);
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+                http.onreadystatechange = function() { 
+                    if(http.readyState == 4 && http.status == 200) {
+                        var response = JSON.parse(http.responseText);
+        
+                        document.getElementById("answer").innerHTML = response.answer;
+                        alert("Posting successful");
+                    } else {
+                        alert("Posting unsuccessful");
+                    }
+                }
+
+                http.send(params);
+            }
+        </script>
+
+        <label for="posts">Posts</label><br>
+        <textarea id="answer" cols="50" rows="10"></textarea><br>
+
+        <label for="data">Data</label><br>
+        <textarea name="data" id='data' cols="50" rows="5"></textarea><br>
+        <button onclick="writeData()">Submit</button>
     </body>
 </html>

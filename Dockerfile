@@ -7,7 +7,9 @@ COPY *.jason .
 COPY server.js .
 COPY pages/* pages
 
-RUN npm add express
-RUN npm add body-parser
+RUN npm install express --save
+RUN npm install -g body-parser
+RUN npm install -g loadtest
+RUN npm install -g nodemon
 
-CMD ["node", "server.js"]
+CMD ["/bin/bash"]
