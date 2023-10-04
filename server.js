@@ -11,6 +11,7 @@ const HOST = '0.0.0.0';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 app.post('/postmessage', (req, res) => {
     var timestamp = new Date(); 
     var topic = req.body.topic;
@@ -25,7 +26,7 @@ app.post('/postmessage', (req, res) => {
         res.send("Data written");
         console.log("Data written to file");
     });
-}); 
+});
 
 app.use('/', express.static('pages'));
 app.listen(PORT, HOST);

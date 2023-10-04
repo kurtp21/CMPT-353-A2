@@ -70,7 +70,7 @@ function sayHello()
             function writeData() {
                 var params = 'name=' + document.getElementById("data").value;
                 var http = new XMLHttpRequest();
-                var url = '/posting';
+                var url = '/posting.html';
 
                 http.open('POST', url, true);
                 http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -79,22 +79,30 @@ function sayHello()
                     if(http.readyState == 4 && http.status == 200) {
                         var response = JSON.parse(http.responseText);
         
-                        document.getElementById("answer").innerHTML = response.answer;
+                        document.getElementById("answer").value = http.responseText;
                         alert("Posting successful");
                     } else {
                         alert("Posting unsuccessful");
                     }
                 }
-
                 http.send(params);
             }
         </script>
-
+        
         <label for="posts">Posts</label><br>
         <textarea id="answer" cols="50" rows="10"></textarea><br>
 
-        <label for="data">Data</label><br>
+        <form action="/postmessage" method="post">
+            <label for="topic">Topic:</label>
+            <input type="text" name="topic" value="posts.txt"><br><br>
+            <label for="data">Data:</label><br>
+            <textarea name="data" cols="50" rows="5">Add Text</textarea><br>
+            <!-- <input type="submit" value="Submit"> -->
+            <button onclick="writeData()">Submit</button>
+        </form>
+
+        <!-- <label for="data">Data</label><br>
         <textarea name="data" id='data' cols="50" rows="5"></textarea><br>
-        <button onclick="writeData()">Submit</button>
+        <button onclick="writeData()">Submit</button> -->
     </body>
 </html>
