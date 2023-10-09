@@ -9,3 +9,122 @@ This still works  --  Timestamp: 1696304983505
 Yippe!  --  Timestamp: 1696305809361
 ee  --  Timestamp: 1696306847465
 This works right  --  Timestamp: 1696429108287
+We did it  --  Timestamp: 1696531122239
+We did it  --  Timestamp: 1696531179083
+We did it  --  Timestamp: 1696531182121
+hello  --  Timestamp: 1696535320834
+uouo  --  Timestamp: 1696535432000
+gdg  --  Timestamp: 1696535597662
+try
+  --  Timestamp: 1696718959858
+Try 1
+We are testing for this function
+--  Timestamp: 1696719406766
+Test 1
+Testing to make sure that the alert works
+Timestamp: 1696719506815
+Test 1
+Testing alert
+Timestamp: 1696719546047
+Test 1
+teating alert
+Timestamp: 1696719596580
+test2
+ttttt
+Timestamp: 1696719961561
+tett
+Add Texttete
+Timestamp: 1696720194169
+dd
+Add Text
+Timestamp: 1696720582389
+h
+Add Text
+Timestamp: 1696720732388
+h
+Add Text
+Timestamp: 1696720745981
+d
+Add Text
+Timestamp: 1696720876981
+Test 1
+Add Text
+Timestamp: 1696721072502
+ddd
+Add Text
+Timestamp: 1696721623845
+ff
+Add Text
+Timestamp: 1696721652658
+d
+Add Text
+Timestamp: 1696721694997
+fdf
+Add Text
+Timestamp: 1696721864929
+\hiii
+Add Text
+Timestamp: 1696721903009
+undefined
+undefined
+Timestamp: 1696722282436
+dfdf
+Add Text
+Timestamp: 1696722282437
+undefined
+undefined
+Timestamp: 1696722420115
+df
+Add Text
+Timestamp: 1696722420117
+dfdsss
+Add Text
+Timestamp: 1696722537326
+undefined
+undefined
+Timestamp: 1696722537324
+dddd
+Add Text
+Timestamp: 1696722554202
+undefined
+undefined
+Timestamp: 1696722554204
+dddd
+Add Text
+Timestamp: 1696722668433
+undefined
+undefined
+Timestamp: 1696722672323
+ddi
+Add Text
+Timestamp: 1696722672325
+ddi
+Add Text
+Timestamp: 1696722685910
+undefined
+undefined
+Timestamp: 1696722690043
+h
+Add Text
+Timestamp: 1696722690051
+we tried
+Add Text
+Timestamp: 1696723399738
+dfsss
+Add Text
+Timestamp: 1696723671496
+dddd
+Add Text
+Timestamp: 1696724529345
+sss
+Add Text
+Timestamp: 1696724605272
+ssss
+Add Text
+Timestamp: 1696724629886
+undefined
+undefined
+Timestamp: 1696731202990
+sdfs
+Add Textdd
+Timestamp: 1696731261748

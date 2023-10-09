@@ -2,6 +2,7 @@
 // Load the required lobraries
 const bodyParser = require('body-parser');
 const express = require('express');
+const readline = require('readline');
 const fs = require('fs');
 const app = express();
 
@@ -11,20 +12,28 @@ const HOST = '0.0.0.0';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.post('/postmessage', (req, res) => {
     var timestamp = new Date(); 
-    var topic = req.body.topic;
-    var data = req.body.data + "  --  Timestamp: " + timestamp.getTime() + "\n"; 
+    var data = req.body.topic + "\n" + req.body.data + "\nTimestamp: " + timestamp.getTime() + "\n"; 
 
     // Write information into the file
-    fs.writeFile('pages/' + topic, data, { flag: 'a+' }, err => {
+    fs.writeFile('pages/posts.txt', data, { flag: 'a+' }, err => {
         if (err) {
-            console.error(err);
-            throw err;
+            res.status(500).send("Failed to write data into file");
+        } else {
+            res.status(200).send("Successful writing data to file");
         }
-        res.send("Data written");
-        console.log("Data written to file");
+    });
+});
+
+app.get('./posts.txt', (req, res) => {
+    fs.readFile('./posts.txt', 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send("Failed to read $(posts.txt} file");
+        } else {
+            const posts = data.split('\n');
+            res.json({ posts });
+        }
     });
 });
 

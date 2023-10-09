@@ -1,61 +1,3 @@
-<!-- <!DOCTYPE html>
-
-<html>
-  <head>
-
-    <title> AJAX </title>
-
-</head>
-
-
-<body>
-    
-<script type = "text/javascript">
-
-function sayHello()
-{
-    var http = new XMLHttpRequest();
-    var url = '/sayHello';
-    var params = 'name=' + document.getElementById("input").value;
-       
-    http.open('POST', url, true);
-
-    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-    http.onreadystatechange = function() 
-    { 
-        if(http.readyState == 4 && http.status == 200) 
-        {
-             
-            var response = JSON.parse(http.responseText);
-    
-            document.getElementById("answer").value = response.answer;
-    
-             
-        }
-    };
-
-    http.send(params);
-};
-
-
-
-</script>
-
-
-  <label for="Name"> Name:</label><br> <br>
-  <input id="input" type="text" name="name" value=""><br> <br>
-  <br>
-  <button  onclick= "sayHello()"  > Hello </button>
-  <br>
-
-
-<textarea id="answer">   </textarea>
-
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -66,43 +8,46 @@ function sayHello()
     </head>
 
     <body>
+        <label for="posts">Posts:</label><br>
+        <textarea id="answer" cols="50" rows="10"></textarea><br>
+        <div id="container"></div><br><br>
+
+        <form action="/postmessage" method="post">
+            <label for="topic">Topic:</label>
+            <input type="text" name="topic" id="topic"><br><br>
+            <label for="data">Data:</label><br>
+            <textarea name="data" cols="50" rows="5" id="data">Add Text</textarea><br>
+            <input type="submit" value="Submit">
+            <button onclick="writeData()">Submit</button>
+        </form>
+
         <script type="text/javascript">
-            function writeData() {
-                var params = 'name=' + document.getElementById("data").value;
+            function displayPosts() {
                 var http = new XMLHttpRequest();
-                var url = '/posting.html';
+                var url = '/postmessage';
+                http.open('GET', url, true);
+
+                
+            }
+
+            function writeData() {
+                var topic = document.getElementById('topic');
+                var data = document.getElementById('data');
+                var http = new XMLHttpRequest();
+                var url = '/postmessage';
 
                 http.open('POST', url, true);
                 http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
                 http.onreadystatechange = function() { 
                     if(http.readyState == 4 && http.status == 200) {
-                        var response = JSON.parse(http.responseText);
-        
-                        document.getElementById("answer").value = http.responseText;
-                        alert("Posting successful");
+                        alert("Data was written");
                     } else {
-                        alert("Posting unsuccessful");
+                        alert("Data failed to be written");
                     }
                 }
-                http.send(params);
+                http.send(JASON.stringify({ topic, data }));
             }
         </script>
-        
-        <label for="posts">Posts</label><br>
-        <textarea id="answer" cols="50" rows="10"></textarea><br>
-
-        <form action="/postmessage" method="post">
-            <label for="topic">Topic:</label>
-            <input type="text" name="topic" value="posts.txt"><br><br>
-            <label for="data">Data:</label><br>
-            <textarea name="data" cols="50" rows="5">Add Text</textarea><br>
-            <!-- <input type="submit" value="Submit"> -->
-            <button onclick="writeData()">Submit</button>
-        </form>
-
-        <!-- <label for="data">Data</label><br>
-        <textarea name="data" id='data' cols="50" rows="5"></textarea><br>
-        <button onclick="writeData()">Submit</button> -->
     </body>
 </html>
