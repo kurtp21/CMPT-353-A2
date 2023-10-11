@@ -2,7 +2,7 @@
 // Load the required lobraries
 const bodyParser = require('body-parser');
 const express = require('express');
-const readline = require('readline');
+const path = require('path');
 const fs = require('fs');
 const app = express();
 
@@ -13,29 +13,46 @@ const HOST = '0.0.0.0';
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/postmessage', (req, res) => {
-    var timestamp = new Date(); 
-    var data = req.body.topic + "\n" + req.body.data + "\nTimestamp: " + timestamp.getTime() + "\n"; 
+    var timestamp = new Date();
+
+    var topic = "<h3>Topic: " + req.body.topic + "</h3>";
+    var body = "<p style=\"font-size: 10px font-weight: 100\">" + req.body.data + "</p>";
+    var time = "<em>Timestamp: " + timestamp.getTime() + "</em>";
+
+    var data = topic + "\n" + body + "\n" + time; 
 
     // Write information into the file
     fs.writeFile('pages/posts.txt', data, { flag: 'a+' }, err => {
         if (err) {
+            console.error(err);
             res.status(500).send("Failed to write data into file");
         } else {
-            res.status(200).send("Successful writing data to file");
+            console.log("Successful writing to file");
+            res.send(JSON.stringify(data));
         }
     });
 });
 
-app.get('./posts.txt', (req, res) => {
-    fs.readFile('./posts.txt', 'utf8', (err, data) => {
+app.get('/', (req, res) => {
+    const filePath = path.join(__dirname, "pages", "posts.txt");
+
+    fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
-            res.status(500).send("Failed to read $(posts.txt} file");
+            console.error(err); 
+            res.status(500).send("Failed to read posts.txt");
         } else {
-            const posts = data.split('\n');
-            res.json({ posts });
+            console.log("Successful reading file data");
+            res.send(JSON.stringify(data));
         }
     });
 });
+
+// app.post('/sayHello', (req,res) => {
+//     var name = req.body.name;
+//     var response = new Object();
+//     response.answer = "hello " + name;         
+//     res.send(JSON.stringify(response));
+// });
 
 app.use('/', express.static('pages'));
 app.listen(PORT, HOST);

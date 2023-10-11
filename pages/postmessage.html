@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title> Forms </title>
-    </head>
+  <head>
 
-    <body>
-        <form action="/postmessage" method="post">
-            <label for="topic">Topic:</label>
-            <input type="text" name="topic" value="posts.txt">
-            <br><br>
+    <title> AJAX </title>
 
-            <label for="data">Data:</label>
-            <br>
-            <textarea name="data" cols="30" rows="10">Add Text</textarea>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+</head>
+
+
+<body>
+    
+<script type = "text/javascript">
+
+function sayHello()
+{
+    var http = new XMLHttpRequest();
+    var url = '/sayHello';
+    var params = 'name=' + document.getElementById("input").value;
+       
+    http.open('POST', url, true);
+
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    http.onreadystatechange = function() 
+    { 
+        if(http.readyState == 4 && http.status == 200) 
+        {
+             
+            var response = JSON.parse(http.responseText);
+    
+            document.getElementById("answer").value = response.answer;
+    
+             
+        }
+    };
+
+    http.send(params);
+};
+
+
+
+</script>
+
+
+  <label for="Name"> Name:</label><br> <br>
+  <input id="input" type="text" name="name" value=""><br> <br>
+  <br>
+  <button  onclick= "sayHello()"  > Hello </button>
+  <br>
+
+
+<textarea id="answer">   </textarea>
+
+</body>
+
 </html>
