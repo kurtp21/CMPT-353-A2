@@ -8,55 +8,58 @@
     </head>
 
     <body>
-        <form action="/postmessage" method="post">
-            <label for="topic" style="font-size: 30px; font-weight: 500;">Topic:</label>
-            <input type="text" name="topic" id="topic"><br><br>
-            <label for="data" style="font-size: 30px; font-weight: 500;">Data:</label><br>
-            <textarea name="data" cols="50" rows="5" id="data">Add Text</textarea><br>
-            <button onclick="writeData()">Submit</button>
-        </form><br><br>
-        
-        <label for="posts" style="font-size: 30px; font-weight: 500;">Posts:</label><br>
-        <div id="container"></div><br><br>
-
         <script type="text/javascript">
+            function writeData() {
+                var http = new XMLHttpRequest();
+                var url = '/postmessage';
+                
+                var params = 'topic='+ document.getElementById("topic").value + '&data=' + document.getElementById("data").value;
+                // alert(params);
+
+                http.open('POST', url, true);
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                
+                http.onreadystatechange = function() { 
+                    if(http.readyState == 4 && http.status == 200) {
+                        document.getElementById("container").value = http.responseText;
+                        displayPosts();
+                        alert("Post was successfully writen to file");
+                    }
+                }
+
+                http.send(params);
+
+                document.getElementById("topic").value = '';
+                document.getElementById("data").value = '';
+            }
+            
             function displayPosts() {
                 var http = new XMLHttpRequest();
                 var url = '/';
-
+        
                 http.open('GET', url, true);
                 
                 http.onreadystatechange = function() {
                     if (http.readyState == 4 && http.status == 200) {
-                        var response = JSON.parse(http.responseText);
-
-                        const posts = document.getElementById("container");
-                        posts.innerHTML = response; 
+                        document.getElementById("container").innerHTML = http.responseText;
                     }
                 };
+        
                 http.send();
-                alert("Data was posted");
+        
+                setTimeout(displayPosts(), 300000);
             }
-            
-            function writeData() {
-                var posts = document.getElementById('container');
-                var http = new XMLHttpRequest();
-                var url = '/postmessage';
-
-                http.open('POST', url, true);
-                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                http.onreadystatechange = function() { 
-                    if(http.readyState == 4 && http.status == 200) {
-                        displayPosts();
-                    }
-                }
-                alert("Data was written");
-            }
-
-            setTimeout(displayPosts(), 300000);
 
             displayPosts();
         </script>
+
+        <label for="topic" style="font-size: 30px; font-weight: 500;">Topic:</label><br>
+        <input type="text" name="topic" id="topic" placeholder="Add Text Here"><br><br>
+        <label for="data" style="font-size: 30px; font-weight: 500;">Data:</label><br>
+        <textarea name="data" cols="30" rows="10" id="data" placeholder="Add Text Here"></textarea><br>
+        <button onclick="writeData()">Submit</button>
+        <br><br><br>
+        <label for="posts" style="font-size: 30px; font-weight: 500;"><u>Posts</u></label><br>
+        <div id="container"></div><br><br>
     </body>
-</html>
+    </html>

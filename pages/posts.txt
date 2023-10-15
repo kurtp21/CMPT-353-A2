@@ -1,19 +1,11 @@
-<h3>Topic: Test 1</h3>
-<p style="font-size: 10px font-weight: 100">New tests</p>
-<em>Timestamp: 1697040808197</em><h3>Topic: Test 2</h3>
-<p style="font-size: 10px font-weight: 100">We in testing mode</p>
-<em>Timestamp: 1697040834388</em><h3>Topic: Test 3</h3>
-<p style="font-size: 10px font-weight: 100">I wanna go home!!</p>
-<em>Timestamp: 1697040856517</em><h3>Topic: Blah</h3>
-<p style="font-size: 10px font-weight: 100">happy dick</p>
-<em>Timestamp: 1697054247702</em><h3>Topic: kurt</h3>
-<p style="font-size: 10px font-weight: 100">b.aaa</p>
-<em>Timestamp: 1697058019388</em><h3>Topic: dddd</h3>
-<p style="font-size: 10px font-weight: 100">dddd</p>
-<em>Timestamp: 1697058062367</em><h3>Topic: ttttt</h3>
-<p style="font-size: 10px font-weight: 100">rrrr</p>
-<em>Timestamp: 1697058304602</em><h3>Topic: dddd</h3>
-<p style="font-size: 10px font-weight: 100">sd</p>
-<em>Timestamp: 1697058353951</em><h3>Topic: dsdsdsd</h3>
-<p style="font-size: 10px font-weight: 100">Add Text</p>
-<em>Timestamp: 1697058380290</em>
+<p style="font-size: 20px; font-weight: 300;">Test 10: WE are all smart [12/9/2023 @ 22:31]</p>
+<p style="font-size: 20px; font-weight: 200;">Test 11: We have changed [12/9/2023 @ 22:32]</p>
+<p style="font-size: 15px; font-weight: 200;">Test 12: Happy, Birthday! [12/9/2023 @ 22:33]</p>
+<p style="font-size: 20px; font-weight: 100;">Test 13: We have fun! [12/9/2023 @ 22:33]</p>
+<p style="font-size: 20px; font-weight: 50;">Test 14: Is he smart [12/9/2023 @ 22:34]</p>
+<h3>Topic: Test 15</h3> <p>We are being safe here</p> <em>[12/9/2023 @ 22:39]</em>
+<h3>Topic: Test 16</h3> <p>We completed the assignment</p> <em>[12/9/2023 @ 22:39]</em>
+<h3>Topic: Test 17</h3> <p>Baja blast is the best</p> <em>[12/9/2023 @ 22:48]</em>
+<h3>Topic: UNIX BOOTCAMP</h3> <p>We learning about 
+uNIX</p> <em>[14/9/2023 @ 17:50]</em>
+<h3>Topic: Test 100</h3> <p>We have changed</p> <em>[14/9/2023 @ 17:53]</em>
